@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esencia Creativa — Galería Virtual</title>
+
+  <!-- Aquí conecto mi archivo de estilos CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Cargo las fuentes de Google Fonts que elegí para el diseño -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HERO: Es la primera sección que se ve al entrar, ocupa toda la pantalla.
+      Puse una imagen de fondo con un overlay oscuro para que el texto blanco se lea bien -->
+  <header class="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__label">Exposición Digital 2026</p>
+      <h1 class="hero__title">Esencia Creativa</h1>
+      <p class="hero__subtitle">Una exploración visual del espacio entre el color y la sombra</p>
+      <!-- Este botón lleva al usuario directo a la sección de obras -->
+      <a href="#obras" class="hero__cta">Ver obras</a>
+    </div>
+  </header>
+
+  <!-- TEXTO CURATORIAL: Aquí explico de qué trata la exposición,
+      como una introducción breve para que el visitante entienda el concepto -->
+  <section class="curatorial" id="curatorial">
+    <div class="container">
+      <h2 class="section-title">Nota Curatorial</h2>
+      <div class="curatorial__text">
+        <p>
+          <em>Esencia Creativa</em> reúne seis piezas que dialogan con la ausencia
+          como materia creativa. En un mundo saturado de ruido, estas obras invitan
+          al espectador a detenerse, observar y escuchar lo que yace entre las palabras.
+          Cada pieza funciona como un fragmento de un poema visual donde el vacío
+          no es carencia, sino presencia contenida.
+        </p>
+        <p>
+          La exposición propone un recorrido contemplativo: desde las texturas abstractas
+          que evocan paisajes interiores, hasta las composiciones geométricas que trazan
+          mapas de emociones no expresadas. El color se emplea como susurro, la forma
+          como pausa, y la luz como el espacio donde todo lo callado finalmente respira.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA DE OBRAS: Usé un grid de 3 columnas para mostrar las 6 obras.
+       Cada obra tiene un efecto hover que muestra información adicional al pasar el mouse -->
+  <section class="gallery" id="obras">
+    <div class="container">
+      <h2 class="section-title">Obras</h2>
+      <div class="gallery__grid">
+
+        <!-- Obra 1: Cada obra tiene su imagen, un overlay con datos y un pie de foto -->
+        <article class="gallery__item">
+          <div class="gallery__img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=600&h=750&fit=crop"
+              alt="Fragmento I — Pintura abstracta con tonos cálidos"
+              class="gallery__img"
+              loading="lazy"
+            >
+            <!-- Esta capa aparece cuando paso el mouse sobre la obra -->
+            <div class="gallery__hover">
+              <h3>Fragmento I</h3>
+              <p>Óleo sobre lienzo — 2024</p>
+              <p>120 × 90 cm</p>
+            </div>
+          </div>
+          <div class="gallery__caption">
+            <h3>Fragmento I</h3>
+            <p>Óleo sobre lienzo</p>
+          </div>
+        </article>
+
+        <!-- Obra 2 -->
+        <article class="gallery__item">
+          <div class="gallery__img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1549490349-8643362247b5?w=600&h=750&fit=crop"
+              alt="Resonancia — Arte abstracto en tonos azules"
+              class="gallery__img"
+              loading="lazy"
+            >
+            <div class="gallery__hover">
+              <h3>Resonancia</h3>
+              <p>Acrílico y técnica mixta — 2024</p>
+              <p>100 × 100 cm</p>
+            </div>
+          </div>
+          <div class="gallery__caption">
+            <h3>Resonancia</h3>
+            <p>Acrílico y técnica mixta</p>
+          </div>
+        </article>
+
+        <!-- Obra 3 -->
+        <article class="gallery__item">
+          <div class="gallery__img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=600&h=750&fit=crop"
+              alt="Vacío Habitado — Composición abstracta"
+              class="gallery__img"
+              loading="lazy"
+            >
+            <div class="gallery__hover">
+              <h3>Vacío Habitado</h3>
+              <p>Técnica mixta sobre madera — 2025</p>
+              <p>80 × 120 cm</p>
+            </div>
+          </div>
+          <div class="gallery__caption">
+            <h3>Vacío Habitado</h3>
+            <p>Técnica mixta sobre madera</p>
+          </div>
+        </article>
+
+        <!-- Obra 4 -->
+        <article class="gallery__item">
+          <div class="gallery__img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1482160549825-59d1b23cb208?w=600&h=750&fit=crop"
+              alt="Cartografía Interior — Arte geométrico"
+              class="gallery__img"
+              loading="lazy"
+            >
+            <div class="gallery__hover">
+              <h3>Cartografía Interior</h3>
+              <p>Tinta y grafito sobre papel — 2025</p>
+              <p>70 × 50 cm</p>
+            </div>
+          </div>
+          <div class="gallery__caption">
+            <h3>Cartografía Interior</h3>
+            <p>Tinta y grafito sobre papel</p>
+          </div>
+        </article>
+
+        <!-- Obra 5 -->
+        <article class="gallery__item">
+          <div class="gallery__img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?w=600&h=750&fit=crop"
+              alt="Pausa — Pintura con texturas"
+              class="gallery__img"
+              loading="lazy"
+            >
+            <div class="gallery__hover">
+              <h3>Pausa</h3>
+              <p>Óleo y cera sobre lienzo — 2025</p>
+              <p>150 × 100 cm</p>
+            </div>
+          </div>
+          <div class="gallery__caption">
+            <h3>Pausa</h3>
+            <p>Óleo y cera sobre lienzo</p>
+          </div>
+        </article>
+
+        <!-- Obra 6 -->
+        <article class="gallery__item">
+          <div class="gallery__img-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&h=750&fit=crop"
+              alt="Último Eco — Obra abstracta final"
+              class="gallery__img"
+              loading="lazy"
+            >
+            <div class="gallery__hover">
+              <h3>Último Eco</h3>
+              <p>Técnica mixta y collage — 2026</p>
+              <p>130 × 90 cm</p>
+            </div>
+          </div>
+          <div class="gallery__caption">
+            <h3>Último Eco</h3>
+            <p>Técnica mixta y collage</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DEL ARTISTA: Aquí muestro la info de la artista con su foto a la izquierda
+      y la biografía a la derecha, usando un grid de dos columnas -->
+  <section class="artist" id="artista">
+    <div class="container artist__layout">
+      <div class="artist__photo-wrapper">
+        <img
+          src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=500&h=600&fit=crop"
+          alt="Retrato de la artista Valentina Solano"
+          class="artist__photo"
+          loading="lazy"
+        >
+      </div>
+      <div class="artist__info">
+        <h2 class="section-title section-title--left">Sobre la Artista</h2>
+        <h3 class="artist__name">Laura Rivera</h3>
+        <p class="artist__bio">
+          Artista visual colombiana (Bogotá, 1992). Su obra explora las tensiones
+          entre presencia y ausencia a través de la abstracción lírica y la materia.
+          Egresada de Bellas Artes de la Universidad Nacional, ha exhibido en galerías
+          de Bogotá, Ciudad de México y Madrid.
+        </p>
+        <p class="artist__bio">
+          Su práctica artística se nutre del paisaje interior, la poesía y los
+          silencios cotidianos. Trabaja principalmente con óleo, técnica mixta y
+          materiales encontrados, buscando que cada pieza funcione como un espacio
+          de contemplación.
+        </p>
+        <!-- Datos puntuales de la artista -->
+        <ul class="artist__details">
+          <li><strong>Formación:</strong> Bellas Artes — Universidad Nacional de Colombia</li>
+          <li><strong>Técnica:</strong> Óleo, acrílico, técnica mixta</li>
+          <li><strong>Contacto:</strong> laura@correo.com</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER: Aquí van los créditos del proyecto, dividido en tres columnas -->
+  <footer class="footer">
+    <div class="container footer__content">
+      <div class="footer__left">
+        <p class="footer__expo">Esencia Creativa</p>
+        <p class="footer__dates">Exposición digital — Abril 2026</p>
+      </div>
+      <div class="footer__center">
+        <p>Curaduría: <strong>Laura </strong></p>
+        <p>Diseño web: <strong>Laura</strong></p>
+        <p>Fotografía: <strong>Laura</strong></p>
+      </div>
+      <div class="footer__right">
+        <p>&copy; 2026 Laura Rivera. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Conecto mi archivo JavaScript para las animaciones -->
+  <script src="script.js"></script>
+</body>
+</html>

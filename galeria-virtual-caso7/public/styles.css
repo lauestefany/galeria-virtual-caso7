@@ -1,0 +1,496 @@
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Hago que el scroll sea suave cuando el usuario
+   hace clic en el botón "Ver obras" */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+/* Defino la fuente principal del sitio y el color del texto */
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  color: #1a1a1a;
+  background-color: #faf9f7;
+  line-height: 1.7;
+}
+
+/* Las imágenes no se salen de su contenedor */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Quito el subrayado de los enlaces */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Quito las viñetas de las listas */
+ul {
+  list-style: none;
+}
+
+/* ==============================================
+   CONTENEDOR: Lo uso para centrar el contenido
+   y que no se estire en pantallas muy grandes
+   ============================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Estilo de los títulos de cada sección, con una
+   línea decorativa dorada debajo */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+/* Esta es la línea dorada debajo del título */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background-color: #b08968;
+  margin: 0.8rem auto 0;
+}
+
+/* Para la sección del artista necesité el título alineado a la izquierda */
+.section-title--left {
+  text-align: left;
+}
+
+.section-title--left::after {
+  margin: 0.8rem 0 0;
+}
+
+/* ==============================================
+   HERO: La sección principal con imagen de fondo
+   que ocupa toda la pantalla
+   ============================================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1600&h=900&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Puse una capa oscura encima de la imagen para que
+   el texto blanco se pueda leer bien */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 15, 15, 0.55),
+    rgba(15, 15, 15, 0.75)
+  );
+}
+
+/* El contenido del hero aparece con una animación suave al cargar */
+.hero__content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  padding: 2rem;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+/* El texto pequeño arriba del título, en color dorado */
+.hero__label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+  margin-bottom: 1.2rem;
+  color: #d4a574;
+  font-weight: 500;
+}
+
+/* El título grande, uso clamp para que se adapte al tamaño de pantalla */
+.hero__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.02em;
+}
+
+/* El subtítulo debajo del nombre de la exposición */
+.hero__subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 300;
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* El botón "Ver obras" con borde dorado */
+.hero__cta {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  border: 1.5px solid #d4a574;
+  color: #d4a574;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Cuando paso el mouse sobre el botón, se rellena de dorado */
+.hero__cta:hover {
+  background-color: #d4a574;
+  color: #111;
+}
+
+/* ==============================================
+   NOTA CURATORIAL: La sección del texto explicativo
+   sobre fondo blanco, centrado
+   ============================================== */
+.curatorial {
+  padding: 6rem 0;
+  background-color: #fff;
+}
+
+/* Limito el ancho del texto para que sea cómodo de leer */
+.curatorial__text {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.curatorial__text p {
+  font-size: 1.05rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.curatorial__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* El nombre de la exposición en itálica dentro del texto */
+.curatorial__text em {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: #1a1a1a;
+}
+
+/* ==============================================
+   GALERÍA: El grid donde muestro las 6 obras
+   en 3 columnas
+   ============================================== */
+.gallery {
+  padding: 6rem 0;
+  background-color: #f2f0ec;
+}
+
+/* Uso CSS Grid para crear las 3 columnas de obras */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Cada obra empieza invisible y aparece con animación */
+.gallery__item {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Le pongo un pequeño retraso a cada obra para que
+   aparezcan una después de otra, como en cascada */
+.gallery__item:nth-child(1) { animation-delay: 0.1s; }
+.gallery__item:nth-child(2) { animation-delay: 0.2s; }
+.gallery__item:nth-child(3) { animation-delay: 0.3s; }
+.gallery__item:nth-child(4) { animation-delay: 0.4s; }
+.gallery__item:nth-child(5) { animation-delay: 0.5s; }
+.gallery__item:nth-child(6) { animation-delay: 0.6s; }
+
+/* El contenedor de la imagen, con overflow hidden para
+   que el zoom no se salga del cuadro */
+.gallery__img-wrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  cursor: pointer;
+}
+
+/* La imagen ocupa todo el espacio y tiene transición suave */
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+/* Esta es la capa oscura que aparece al pasar el mouse,
+   mostrando el título, la técnica y las medidas */
+.gallery__hover {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 15, 15, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.gallery__hover h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.gallery__hover p {
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+/* EFECTO HOVER: Al pasar el mouse la imagen hace zoom */
+.gallery__img-wrapper:hover .gallery__img {
+  transform: scale(1.08);
+}
+
+/* Y al mismo tiempo aparece la capa con la información */
+.gallery__img-wrapper:hover .gallery__hover {
+  opacity: 1;
+}
+
+/* El pie de foto debajo de cada obra */
+.gallery__caption {
+  padding: 1rem 0.25rem;
+}
+
+.gallery__caption h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 0.2rem;
+}
+
+.gallery__caption p {
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ==============================================
+   SECCIÓN DEL ARTISTA: Foto a la izquierda
+   y biografía a la derecha usando grid
+   ============================================== */
+.artist {
+  padding: 6rem 0;
+  background-color: #fff;
+}
+
+/* Divido esta sección en dos columnas */
+.artist__layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.artist__photo-wrapper {
+  overflow: hidden;
+}
+
+/* La foto empieza un poco en escala de grises
+   y al pasar el mouse se ve a color completo */
+.artist__photo {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  filter: grayscale(20%);
+  transition: filter 0.4s ease;
+}
+
+.artist__photo:hover {
+  filter: grayscale(0%);
+}
+
+/* El nombre de la artista en color dorado */
+.artist__name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  color: #b08968;
+}
+
+.artist__bio {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* Los datos del artista separados con una línea arriba */
+.artist__details {
+  margin-top: 1.5rem;
+  border-top: 1px solid #e5e0da;
+  padding-top: 1.5rem;
+}
+
+.artist__details li {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.6rem;
+}
+
+.artist__details li strong {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+/* ==============================================
+   FOOTER: La parte final con los créditos,
+   fondo oscuro y texto claro
+   ============================================== */
+.footer {
+  background-color: #1a1a1a;
+  color: #aaa;
+  padding: 3rem 0;
+}
+
+/* Tres columnas para organizar los créditos */
+.footer__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.footer__expo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: #d4a574;
+  margin-bottom: 0.3rem;
+}
+
+.footer__dates {
+  font-size: 0.85rem;
+}
+
+.footer__center p {
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
+
+.footer__center strong {
+  color: #ddd;
+  font-weight: 500;
+}
+
+.footer__right {
+  text-align: right;
+  font-size: 0.8rem;
+}
+
+/* ==============================================
+   ANIMACIÓN: Esta es la animación que hace que
+   los elementos aparezcan subiendo suavemente
+   ============================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==============================================
+   RESPONSIVE: Aquí ajusto el diseño para pantallas
+   más pequeñas como tablets y celulares
+   ============================================== */
+
+/* En tablets, las obras pasan a 2 columnas */
+@media (max-width: 1024px) {
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .artist__layout {
+    gap: 3rem;
+  }
+}
+
+/* En celulares, todo va en una sola columna */
+@media (max-width: 768px) {
+  .hero {
+    background-attachment: scroll;
+  }
+
+  .gallery__grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .artist__layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .artist__photo {
+    height: 350px;
+  }
+
+  .section-title--left {
+    text-align: center;
+  }
+
+  .section-title--left::after {
+    margin: 0.8rem auto 0;
+  }
+
+  .footer__content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .footer__right {
+    text-align: center;
+  }
+}
